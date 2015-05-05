@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="cdt.managedbuild.toolchain.xlc.exe.debug.508691116">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.xlc.exe.debug.508691116" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.errorparsers.xlc.XlcErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration buildProperties="" description="" id="cdt.managedbuild.toolchain.xlc.exe.debug.508691116" name="Debug" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="cdt.managedbuild.toolchain.xlc.exe.debug.508691116.554307465" name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.xlc.exe.debug.2042733320" name="XL C/C++ Tool Chain" superClass="cdt.managedbuild.toolchain.xlc.exe.debug">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.xlc.platform.exe.debug.1574360712" name="Debug Platform" osList="all" superClass="cdt.managedbuild.target.xlc.platform.exe.debug"/>
+							<builder id="org.eclipse.cdt.manangedbuilder.xlc.builder.exe.debug.1477008741" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="org.eclipse.cdt.manangedbuilder.xlc.builder.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.xlc.cpp.compiler.exe.debug.280025258" name="Local XL C++ Compiler" superClass="cdt.managedbuild.tool.xlc.cpp.compiler.exe.debug">
+								<inputType id="cdt.managedbuild.tool.xlc.cpp.c.compiler.input.2146277744" name="Local C Sources" superClass="cdt.managedbuild.tool.xlc.cpp.c.compiler.input"/>
+								<inputType id="cdt.managedbuild.tool.xlc.cpp.compiler.input.149683677" name="Local C++ Sources" superClass="cdt.managedbuild.tool.xlc.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.xlc.c.compiler.exe.debug.1546982908" name="Local XL C Compiler" superClass="cdt.managedbuild.tool.xlc.c.compiler.exe.debug">
+								<inputType id="cdt.managedbuild.tool.xlc.c.compiler.input.524107146" name="Local C Sources" superClass="cdt.managedbuild.tool.xlc.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.xlc.c.linker.exe.debug.1451029437" name="XL C Executable Linker" superClass="cdt.managedbuild.tool.xlc.c.linker.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.xlc.cpp.linker.exe.debug.245168334" name="XL C++ Executable Linker" superClass="cdt.managedbuild.tool.xlc.cpp.linker.exe.debug">
+								<option id="xlc.c.link.option.libs.1394520197" superClass="xlc.c.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="GLEW"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="GLU"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="GL"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glfw"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.xlc.c.linker.input.89179740" superClass="cdt.managedbuild.tool.xlc.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.xlc.assembler.exe.debug.1323162083" name="XL Assembler" superClass="cdt.managedbuild.tool.xlc.assembler.exe.debug"/>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="sparky.null.756150808" name="sparky"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.xlc.exe.debug.508691116;cdt.managedbuild.toolchain.xlc.exe.debug.508691116.554307465;cdt.managedbuild.tool.xlc.cpp.compiler.exe.debug.280025258;cdt.managedbuild.tool.xlc.cpp.compiler.input.149683677">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.xlc.exe.debug.508691116;cdt.managedbuild.toolchain.xlc.exe.debug.508691116.554307465;cdt.managedbuild.tool.xlc.cpp.compiler.exe.debug.280025258;cdt.managedbuild.tool.xlc.cpp.c.compiler.input.2146277744">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.xlc.exe.debug.508691116;cdt.managedbuild.toolchain.xlc.exe.debug.508691116.554307465;cdt.managedbuild.tool.xlc.c.compiler.exe.debug.1546982908;cdt.managedbuild.tool.xlc.c.compiler.input.524107146">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+</cproject>
