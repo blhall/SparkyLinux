@@ -13,7 +13,6 @@ namespace sparky { namespace graphics {
     glDeleteProgram(m_ShaderID);
   }
 
-
   GLuint Shader::load()
   {
     GLuint program = glCreateProgram();
@@ -26,11 +25,11 @@ namespace sparky { namespace graphics {
     const char* vertSource = vertSourceString.c_str();
     const char* fragSource = fragSourceString.c_str();
 
-    GLint result;
     //Vertex
     glShaderSource(vertex, 1, &vertSource, NULL);
     glCompileShader(vertex);
 
+    GLint result;
     glGetShaderiv(vertex, GL_COMPILE_STATUS, &result);
 
     if (result == GL_FALSE) 
@@ -76,7 +75,12 @@ namespace sparky { namespace graphics {
 
   GLint Shader::getUniformLocation(const GLchar* name) 
   {
-    return glGetUniformLocation(m_ShaderID, name);
+    if (locations.find(*name) == locations.end())
+    {
+      std::cout << "Looking up shader location" << std::endl;
+      locations.insert(std::pair<GLchar, GLint>(*name, glGetUniformLocation(m_ShaderID, name)));
+    }  
+    return locations.find(*name)->second;
   }
 
   void Shader::setUniform1i(const GLchar* name, const int value)
@@ -88,6 +92,17 @@ namespace sparky { namespace graphics {
   {
     glUniform1f(getUniformLocation(name), value);
   }
+/*
+    void Shader::setUniform1i(const GLchar* name, int value)
+  {
+    glUniform1i(getUniformLocation(name), value);
+  }
+
+  void Shader::setUniform1iv(const GLchar* name, int* value, int count)
+  {
+    glUniform1iv(getUniformLocation(name), count, value);
+  }
+*/
 
   void Shader::setUniform2f(const GLchar* name, const maths::vec2& vector) 
   {

@@ -2,6 +2,7 @@
 
 #include "graphics/vertexarray.h"
 #include "graphics/renderer2d.h"
+#include <cstddef>
 
 namespace sparky { namespace graphics {
 

@@ -93,7 +93,7 @@ CFLAGS  = -g -O2
 CXXFLAGS= -g -O2
 
 # The C program compiler.
-CC     = gcc
+CC     = gcc -std=c++11
 
 # The C++ program compiler.
 CXX    = g++ -std=c++11
@@ -230,11 +230,11 @@ else                            # C++ program
 	@echo Type ./$@ to execute the program.
 endif
 
-ifndef NODEP
-ifneq ($(DEPS),)
-  sinclude $(DEPS)
-endif
-endif
+#ifndef NODEP
+#ifneq ($(DEPS),)
+#  sinclude $(DEPS)
+#endif
+#endif
 
 clean:
 	$(RM) $(OBJS) $(DEPS) $(PROGRAM) $(PROGRAM).exe

@@ -2,6 +2,11 @@
 
 namespace sparky { namespace graphics {
 
+  void window_resize(GLFWwindow* window, int width, int height);
+  void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+  void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+  void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
+
   Window::Window(const char *title, int width, int height)
   {
     m_Title = title;
@@ -81,42 +86,48 @@ namespace sparky { namespace graphics {
     }
     glfwMakeContextCurrent(m_Window);
     glfwSetWindowUserPointer(m_Window, this);
-    glfwSetWindowSizeCallback(m_Window, this->windowResize);
-    glfwSetKeyCallback(m_Window, this->key_callback);
-    glfwSetMouseButtonCallback(m_Window, this->mouse_button_callback);
-    glfwSetCursorPosCallback(m_Window, this->cursor_position_callback);
+    glfwSetWindowSizeCallback(m_Window, window_resize);
+    glfwSetKeyCallback(m_Window, key_callback);
+    glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
+    glfwSetCursorPosCallback(m_Window, cursor_position_callback);
+    glfwSwapInterval(0.0);
 
 
     if (glewInit() != GLEW_OK) {
       std::cout << "Could not initiliaze GLEW!" << std::endl;
       return false;
     }
-      
+    
+    std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
 
     return true;    
   }
 
-  void Window::windowResize(GLFWwindow *window, int width, int height) {
-    glViewport(0, 0, width, height); 
+  void window_resize(GLFWwindow *window, int width, int height) {
+    glViewport(0, 0, width, height);
+    Window* win = (Window*)glfwGetWindowUserPointer(window);
+    win->m_Width = width;
+    win->m_Height = height;
+
   }
 
-	void Window::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		Window* win = (Window*)glfwGetWindowUserPointer(window);
 		win->m_Keys[key] = action != GLFW_RELEASE;
 	}
 
-	void Window::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+	void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 	{
 		Window* win = (Window*)glfwGetWindowUserPointer(window);
 		win->m_MouseButtons[button] = action != GLFW_RELEASE;
 	}
 
-	void Window::cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
+	void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 	{
 		Window* win = (Window*)glfwGetWindowUserPointer(window);
 		win->mx = xpos;
 		win->my = ypos;
-	}  
+	}
   
 }}

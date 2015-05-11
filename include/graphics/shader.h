@@ -5,13 +5,17 @@
 #include <GL/glew.h>
 #include "maths/maths.h"
 #include "utils/fileutils.h"
+#include <map>
 
 namespace sparky { namespace graphics {
 
   class Shader
   {
-    public:
+  private:
+    std::map<GLchar, GLint> locations;
+  public:
       GLuint m_ShaderID;
+      GLint  m_Location;
       const char *m_VertPath;
       const char *m_FragPath;
 

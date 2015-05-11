@@ -35,7 +35,7 @@ namespace sparky {
           float sum = 0.0f;
           for (int e = 0; e < 4; e++)
           {
-            sum += other.elements[x + e * 4] * other.elements[e + y * 4];
+            sum += elements[x + e * 4] * other.elements[e + y * 4];
           }
           data[x + y  * 4] = sum;
         }
