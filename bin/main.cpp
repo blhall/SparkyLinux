@@ -28,12 +28,28 @@ int main() {
 
 //  mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
-  Shader shader("shaders/basic.vert", "shaders/basic.frag");
+  Shader* shader = new Shader("shaders/basic.vert", "shaders/basic.frag");
+  Shader* shader2 = new Shader("shaders/basic.vert", "shaders/basic.frag");
 
-  shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
+  shader->enable();
+  shader2->enable();
 
-  TileLayer layer(&shader);
-  layer.add(new Sprite(0, 0, 2, 2, maths::vec4(0.8f, 0.2f, 0.8f, 1.0f)));
+  shader->setUniform2f("light_pos", vec2(4.0f, 1.5f));
+  shader2->setUniform2f("light_pos", vec2(4.0f, 1.5f));
+
+  TileLayer layer(shader);
+
+  for (float y = -9.0f; y < 9.0f; y+=0.1) 
+  {
+    for (float x = -16.0f; x < 16.0f; x+= 0.1)
+    {
+      layer.add(new Sprite(x,y, 0.09f, 0.09f, maths::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+    }
+  }
+
+  TileLayer layer2(shader2);
+  layer2.add(new Sprite(-2, -2, 4, 4, maths::vec4(1,0,1,1)));
+
 
 //FPS calculations
   Timer time;
@@ -46,9 +62,15 @@ int main() {
     window.clear();
     double x,y;
     window.getMousePosition(x, y);
-    shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+
+    shader->enable();
+    shader->setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+
+    shader2->enable();
+    shader2->setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
 
     layer.render();
+    layer2.render();
 
     window.update();
     frames++;
