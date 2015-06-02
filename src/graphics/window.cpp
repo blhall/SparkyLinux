@@ -65,7 +65,6 @@ namespace sparky { namespace graphics {
     if (error != GL_NO_ERROR) 
       std::cout << "OpenGL Error: " << error << std::endl;
 
-
     glfwPollEvents();
     glfwSwapBuffers(m_Window);
   }
@@ -90,8 +89,7 @@ namespace sparky { namespace graphics {
     glfwSetKeyCallback(m_Window, key_callback);
     glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
     glfwSetCursorPosCallback(m_Window, cursor_position_callback);
-    glfwSwapInterval(0.0);
-
+    glfwSwapInterval(1);
 
     if (glewInit() != GLEW_OK) {
       std::cout << "Could not initiliaze GLEW!" << std::endl;

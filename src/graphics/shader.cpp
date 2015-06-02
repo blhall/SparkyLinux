@@ -75,12 +75,16 @@ namespace sparky { namespace graphics {
 
   GLint Shader::getUniformLocation(const GLchar* name) 
   {
+#if 0
     if (locations.find(*name) == locations.end())
     {
       std::cout << "Looking up shader location" << std::endl;
       locations.insert(std::pair<GLchar, GLint>(*name, glGetUniformLocation(m_ShaderID, name)));
     }  
     return locations.find(*name)->second;
+#else
+    return glGetUniformLocation(m_ShaderID, name);
+#endif
   }
 
   void Shader::setUniform1i(const GLchar* name, const int value)

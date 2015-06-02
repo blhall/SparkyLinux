@@ -63,7 +63,7 @@ MY_CFLAGS =
 MY_LIBS   = -lGLEW -lGLU -lGL -lglfw
 
 # The pre-processor options used by the cpp (man cpp for more).
-CPPFLAGS  = -Wall -I./include -I./include/graphics -I./include/maths -I./include/utils
+CPPFLAGS  = -Wall -I./include -I./include/graphics -I./include/graphics/layers -I./include/maths -I./include/utils
 
 # The options used in linking as well as in any direct use of ld.
 LDFLAGS   =  
@@ -71,7 +71,7 @@ LDFLAGS   =
 
 # The directories in which source files reside.
 # If not specified, only the current directory will be serached.
-SRCDIRS   = src src/graphics src/maths src/utils bin
+SRCDIRS   = src src/graphics src/graphics/layers src/maths src/utils bin
 
 # The executable file name.
 # If not specified, current directory name or `a.out' will be used.

@@ -57,7 +57,7 @@ namespace sparky { namespace graphics {
     m_Buffer = (VertexData*) glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
   }
 
-  void BatchRenderer2D::submit(const Renderable2D* renderable)
+  inline void BatchRenderer2D::submit(const Renderable2D* renderable)
   {
     const maths::vec3& position = renderable->getPosition();
     const maths::vec2& size     = renderable->getSize();
@@ -95,7 +95,7 @@ namespace sparky { namespace graphics {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
   }
 
-  void BatchRenderer2D::flush()
+  inline void BatchRenderer2D::flush()
   {
     glBindVertexArray(m_VAO);
     m_IBO->bind();
@@ -104,7 +104,6 @@ namespace sparky { namespace graphics {
 
     m_IBO->unbind();
     glBindVertexArray(0);
-
   }
 
 }}
